@@ -1,0 +1,32 @@
+attestation:
+  host: https://api.trustedservices.intel.com/sgx/dev
+  spid: 43B977306E1FFF01497D0B9771F1C751
+  acceptGroupOutOfDate: true
+  apiKey: 3089ea2b8b0d406f8d02859916937b50
+  disabled: false
+
+control:
+  listenHostPort: 127.0.0.1:11004
+
+enclave:
+  listenHostPort: 127.0.0.1:11005
+
+  maxConnections: 256
+
+  mrenclave: 412d6e0d621ded0a7651b630d2368b30dfb952c11761e87d23f4a8f1405bc1f3
+  debug: true
+
+  storageSize: 4000000
+  raftLogSize: 2147483648
+
+  maxBackupDataLength: 100
+
+  electionTimeoutMs:    30000
+  electionHeartbeats:   100
+
+  replicationChunkSize: 10240
+  transferChunkSize:    266240
+
+  attestationExpiryCommitIntervalMs: 600000
+
+  maxFrontendCount: 1287

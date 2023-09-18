@@ -1,0 +1,45 @@
+api:
+  listenHostPort: 127.0.0.1:11000
+  userAuthenticationTokenSharedSecret: 540123ea6a827333ef8e1e2bac905600
+  backupIdSecret: 540123ea6a827333ef8e1e2bac905600
+
+  denyBackup: false
+  limits:
+    token:
+      bucketSize:        10
+      leakRatePerMinute: 10
+    attestation:
+      bucketSize:        50
+      leakRatePerMinute: 50
+    backup:
+      bucketSize:        10
+      leakRatePerMinute: 10
+
+attestation:
+  host: https://api.trustedservices.intel.com/sgx/dev
+  spid: 43B977306E1FFF01497D0B9771F1C751
+  acceptGroupOutOfDate: true
+  apiKey: 3089ea2b8b0d406f8d02859916937b50
+  disabled: false
+
+control:
+  listenHostPort: 127.0.0.1:11003
+
+enclaves:
+  - name: 412d6e0d621ded0a7651b630d2368b30dfb952c11761e87d23f4a8f1405bc1f3
+    mrenclave: 412d6e0d621ded0a7651b630d2368b30dfb952c11761e87d23f4a8f1405bc1f3
+    debug: true
+
+    maxBackupDataLength: 48
+
+    electionTimeoutMs: 30000
+
+    pendingRequestCount: 65536
+    pendingRequestTtlMs: 300000
+
+    partitions:
+      - replicas:
+          - hostPort: 127.0.0.1:11005
+        range:
+          firstBackupId: "0000000000000000000000000000000000000000000000000000000000000000"
+          lastBackupId:  "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
